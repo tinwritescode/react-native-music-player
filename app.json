@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "taytrongbantay-music",
+    "slug": "taytrongbantay-music",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "taytrongbantay-music"
+}
