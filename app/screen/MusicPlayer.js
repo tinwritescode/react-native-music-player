@@ -1,18 +1,11 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useContext } from "react";
+import AudioProvider from "../context/AudioProvider";
+import MusicPlayer from "../components/MusicPlayer";
 
-export default function MusicPlayer() {
+export default function PlayerPage() {
   return (
-    <View style={styles.container}>
-      <Text>Music Player</Text>
-    </View>
+    <AudioProvider>
+      <MusicPlayer />
+    </AudioProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

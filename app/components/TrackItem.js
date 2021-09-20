@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import colors from "../utils/colors";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { Shadow } from "react-native-shadow-2";
+import { AudioContext } from "../context/AudioProvider";
 
-export default function TrackItem({ title, thumb, artist }) {
+export default function TrackItem({
+  title,
+  artist,
+  album,
+  duration,
+  path,
+  thumb,
+  date,
+  // uri,
+}) {
+  const { addTrack } = useContext(AudioContext);
+
   return (
     <TouchableOpacity
-      onPress={() => {}}
+      onPress={() => {
+        addTrack({
+          title,
+          artist,
+          album,
+          duration,
+          path,
+          thumb,
+          date,
+        });
+      }}
       activeOpacity={0.6}
-      style={styles.wrapper}
     >
       <View style={styles.trackItem}>
         <Image
@@ -28,28 +55,11 @@ export default function TrackItem({ title, thumb, artist }) {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-    elevation: 1,
-
-    marginBottom: 4,
-    marginLeft: 10,
-    marginRight: 10,
-
-    backgroundColor: "white",
-    borderRadius: 3,
-  },
   trackItem: {
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    padding: 10,
+    marginBottom: 4,
   },
   trackInfo: {
     flex: 1,
